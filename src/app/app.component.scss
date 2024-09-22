@@ -1,0 +1,10 @@
+.navigate {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    justify-content: flex-start;
+    & li {
+        list-style-type: none;
+    }
+}

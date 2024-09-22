@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/app.component.scss"],
+  "sourcesContent": [".navigate {\r\n    width: 100%;\r\n    display: flex;\r\n    flex-flow: row nowrap;\r\n    gap: 1rem;\r\n    justify-content: flex-start;\r\n    & li {\r\n        list-style-type: none;\r\n    }\r\n}"],
+  "mappings": "AAAA,CAAA,SACI,MAAA,KACA,QAAA,KACA,UAAA,IAAA,OACA,IAAA,KACA,gBAAA,WACA,CANJ,SAMI,GACI,gBAAA",
+  "names": []
+}
