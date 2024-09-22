@@ -1,4 +1,6 @@
 .navigate {
+    padding: 10px 0;
+    border-bottom: 1px solid red;
     width: 100%;
     display: flex;
     flex-flow: row nowrap;
@@ -7,4 +9,14 @@
     & li {
         list-style-type: none;
     }
+}
+.main {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: white;
+    z-index: 100;
+}
+.content {
+    margin-top: 50px;
 }
