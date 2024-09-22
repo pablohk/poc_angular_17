@@ -21,10 +21,8 @@ export class LazyObsPipe<T> implements PipeTransform {
     delayed: number = 100
   ): Observable<Array<T>> {
     const items: Array<T> = [];
-    console.log('---obs', obs)
     return obs.pipe(
       switchMap((e) =>{
-        console.log('---e',e)
         if(!e.length){
           return of([]) 
         }
