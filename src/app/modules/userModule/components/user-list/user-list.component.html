@@ -1,0 +1,16 @@
+<div class="user-list-container">
+    <p>LISTADO USUARIOS</p>
+    <button (click)="goTo('userDetail')">Ir al Detalle</button>
+
+    <ng-container *ngIf="(userList$ | async) as userData">
+        <div class="table-container">
+            <div class="table-content" *ngFor="let item of userData">
+                <p>{{item.id}}</p>
+                <p>{{item.name}}</p>
+                <p>{{item.date}}</p>
+                <p>{{item.rules | json}}</p>
+            </div>
+        </div>
+
+    </ng-container>
+</div>

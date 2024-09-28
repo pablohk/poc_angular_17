@@ -1,0 +1,19 @@
+<div class="rules-module-container">
+    <ng-container *ngIf="(activeView$ | async) as view">
+        @switch (view) {
+        @case ('rulesList') {
+        @defer () {
+        <rules-list></rules-list>
+        }
+        }
+        @case ('rulesDetail') {
+        @defer () {
+        <rules-detail></rules-detail>
+        }
+        }
+        @default {
+        <p>Vista no encontrada</p>
+        }
+        }
+    </ng-container>
+</div>

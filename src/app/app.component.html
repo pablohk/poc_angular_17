@@ -1,11 +1,35 @@
 <main class="main">
-  <ul class="navigate">
-    @for (item of views; track item.name) {
-      <li><a routerLink="{{item.path}}" routerLinkActive="active">{{item.name}}</a></li>
-    }
-  </ul>
-</main>
-<div class="content">
-  <router-outlet />
-</div>
+  <nav>
+    <button (click)="handleClick('userList')">User Module</button>
+    <button (click)="handleClick('rulesList')">Rules Module</button>
+    <button (click)="toggleLoading(true)">toggleLoading TRUE</button>
+    <button (click)="toggleLoading(false)">toggleLoading FALSE</button>
 
+  </nav>
+  <ng-container>
+    <div class="flex-row">
+      <p>Estado loading: {{loading}}</p>
+    </div>
+
+    @switch (view) {
+      @case ('userList') {
+        @defer () {
+          <user-module></user-module>
+        }
+      }
+      @case ('rulesList') {
+          @defer () {
+            <rules-module></rules-module>
+          }
+      }
+      @default {
+        <p>Vista no encontrada</p>
+      }
+    }
+  </ng-container>
+  <ng-container *ngIf="loading">
+    <div class="loading">
+      <h1>LOADING......</h1>
+    </div>
+  </ng-container>
+</main>

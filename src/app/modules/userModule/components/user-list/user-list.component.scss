@@ -1,0 +1,20 @@
+.user-list-container {
+  * {
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+  }
+  .table-container {
+    width: 100%;
+    padding: 1rem;
+  }
+  .table-content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    p {
+      border: 1px solid black;
+    }
+  }
+ 
+}
