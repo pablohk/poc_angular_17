@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { GenericStore } from './genericStore';
 import { Observable } from 'rxjs';
+import { TNullable } from '../models/sharedModels';
 
 export interface IuiStore{
   activeView: string;
   globalLoading: boolean;
-  userIdSelected: string | null;
+  userIdSelected: TNullable<string>;
 }
 
 export const initialState ={
@@ -48,12 +49,12 @@ export class UiStoreService extends GenericStore<IuiStore> {
     }));
   }
 
-  public getLUserIdSelected(): Observable<string | null> {
-    console.log('---getLUserIdSelected')
+  public getUserIdSelected(): Observable<TNullable<string>> {
+    console.log('---getUserIdSelected')
     return this.select((state)=> state.userIdSelected) 
   }
 
-  public setUserIdSelected(id: string | null) {
+  public setUserIdSelected(id: string) {
     console.log('---setUserIdSelected',id)
     this.setState((state) => ({
       ...state,

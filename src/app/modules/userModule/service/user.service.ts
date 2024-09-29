@@ -18,6 +18,7 @@ export class UserService {
                 rules: [`rule-${e}-0`, `rule-${e}-1`, `rule-${e}-2`],
             }
         ));
-        return of(mock).pipe(delay(1000))
+        const rdm = Math.round(Math.random()) < 0.5
+        return of(rdm ? mock : mock.slice(0,10)).pipe(delay(1000))
     }
 }

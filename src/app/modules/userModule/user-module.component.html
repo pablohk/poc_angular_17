@@ -1,27 +1,27 @@
 <div class="user-module-container">
-    <ng-container *ngIf="(activeView$ | async) as view">
-        @switch (view) {
-        @case ('userList') {
+  @if ((activeView$ | async); as view) {
+    @switch (view) {
+      @case ('userList') {
         @defer () {
         <ng-container *ngTemplateOutlet="userList"></ng-container>
-        }
-        }
-        @case ('userListNoRefresh') {
-        @defer () {
-        <ng-container *ngTemplateOutlet="userList"></ng-container>
-        }
-        }
-        @case ('userDetail') {
-        @defer () {
-        <user-detail></user-detail>
-        }
-        }
-        @default {
-        <p>Vista no encontrada</p>
-        }
-        }
-    </ng-container>
-    <ng-template #userList>
-        <user-list></user-list>
-    </ng-template>
+      }
+    }
+    @case ('userListNoRefresh') {
+      @defer () {
+      <ng-container *ngTemplateOutlet="userList"></ng-container>
+    }
+  }
+  @case ('userDetail') {
+    @defer () {
+    <user-detail></user-detail>
+  }
+}
+@default {
+  <p>Vista no encontrada</p>
+}
+}
+}
+<ng-template #userList>
+  <user-list></user-list>
+</ng-template>
 </div>

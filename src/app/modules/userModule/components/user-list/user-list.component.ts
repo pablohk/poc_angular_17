@@ -1,4 +1,4 @@
-import { CommonModule } from "@angular/common";
+import { AsyncPipe, JsonPipe } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -19,7 +19,7 @@ import { LazyObsPipe } from "../../../../pipes/layzObs.pipe.";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom,
-  imports: [CommonModule, LazyObsPipe],
+  imports: [AsyncPipe, JsonPipe, LazyObsPipe],
   templateUrl: "./user-list.component.html",
   styleUrl: "./user-list.component.scss",
 })
@@ -31,8 +31,9 @@ export class UserListComponent implements OnInit {
     private readonly uiStoreService: UiStoreService,
     private readonly userStoreService: UserStoreService,
     private readonly userService: UserService
-  ) {}
-
+  ) {
+  }
+  
   ngOnInit(): void {
     this.getCurrentView();
     this.getUserList();

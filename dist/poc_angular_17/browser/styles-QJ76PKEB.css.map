@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/styles.scss"],
-  "sourcesContent": ["/* You can add global styles to this file, and also import other style files */\r\n* {\r\n    padding:0px;\r\n    margin:0px;\r\n    box-sizing: border-box;\r\n}"],
-  "mappings": "AACA,EADA,QAEI,EAFJ,OAGI,EACA,WAAA",
-  "names": []
-}

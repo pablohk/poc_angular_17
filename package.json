@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "sme": "ng build --source-map && source-map-explorer dist/poc_angular_17/**/*.js --html tree.html"
-
+    "sme": "ng build --source-map && source-map-explorer dist/poc_angular_17/**/*.js --html tree.html",
+    "sme:vite": "ng build && npx vite-bundle-visualizer --sourcemap -i dist/poc_angular_17/browser/index.html -o vitetree.html"
   },
   "private": true,
   "dependencies": {

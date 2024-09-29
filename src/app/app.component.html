@@ -11,20 +11,22 @@
     @switch (view) {
       @case ('userList') {
         @defer () {
-          <user-module></user-module>
-        }
-      }
-      @case ('rulesList') {
-          @defer () {
-            <rules-module></rules-module>
-          }
-      }
-      @default {
-        <p>Vista no encontrada</p>
+        <user-module></user-module>
       }
     }
-    <div *ngIf="loading" class="loading">
-      <h1>LOADING......</h1>
-    </div>
+    @case ('rulesList') {
+      @defer () {
+      <rules-module></rules-module>
+    }
+  }
+  @default {
+    <p>Vista no encontrada</p>
+  }
+}
+@if (loading) {
+  <div class="loading">
+    <h1>LOADING......</h1>
   </div>
+}
+</div>
 </div>
