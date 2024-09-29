@@ -8,12 +8,34 @@
     width: 100%;
     padding: 1rem;
   }
+  .table-content:last-of-type {
+    p{
+      border-bottom: 1px solid black;;
+    }
+  }
   .table-content {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr) 2fr 1fr;
+    height: 30px;
     p {
       border: 1px solid black;
+      line-height: 30px;
+      border-bottom: none;
+      padding-left: 0.5rem;
+      span {
+        font-size: 11px;
+      }
+      span:not(:first-child) {
+        padding-left: 0.5rem;
+      }
+    }
+    p:not(:first-child){
+      border-left: none;
+    }
+    p:last-of-type{
+      border-right: none;
+      ;
     }
   }
  

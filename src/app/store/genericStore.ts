@@ -25,8 +25,8 @@ export abstract class GenericStore<T> {
         );
   }
 
-  protected setState<K extends keyof T, E extends Partial<Pick<T, K>>>(
-    fn: (state: T) => E
+  protected setState(
+    fn: (state: T) => T
   ): void {
     const currentState = this.getState();
     const incomingState = fn(currentState);
@@ -35,9 +35,9 @@ export abstract class GenericStore<T> {
     console.log('---CurrentState:', currentState);
     console.log('---incomingState:', incomingState);
     if(incomingState && (currentStateParse !== incomingStateParse)){
-        const newState = { ...currentState, ...incomingState };
-        console.warn('---NewState:', newState);
-        this._state.next(newState);
+      console.log('---NEW')
+      this._state.next({...incomingState});
     }
   }
+
 }

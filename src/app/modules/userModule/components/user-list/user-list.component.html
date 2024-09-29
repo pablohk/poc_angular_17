@@ -8,7 +8,11 @@
           <p>{{item.id}}</p>
           <p>{{item.name}}</p>
           <p>{{item.date}}</p>
-          <p>{{item.rules | json}}</p>
+          <p>
+            @for(ruleItem of item.rules; track ruleItem){
+              <span>{{ruleItem}}</span>
+            }
+          </p>
           <button (click)="goToDetail(item.id)">Ver Detalle</button>
         </div>
       }
