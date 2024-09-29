@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/defer-block-2/defer-block-2.component.css"],
-  "sourcesContent": [".defer-block-2{\n  width: 100%;\n  background-color: blue;\n  min-height: 100px;\n}"],
-  "mappings": "AAAA,CAAC,cACC,MAAO,KACP,iBAAkB,KAClB,WAAY,KACd",
-  "names": []
-}

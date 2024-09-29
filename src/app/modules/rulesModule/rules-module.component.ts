@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { UiStoreService } from '../../store/UiStoreService.service';
 import { Observable } from 'rxjs';
 import { RulesListComponent } from './components/rules-list/rules-list.component';
@@ -10,7 +10,7 @@ import { RulesDetailComponent } from './components/rules-detail/rules-detail.com
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.ShadowDom,
-    imports: [CommonModule, RulesListComponent, RulesDetailComponent],
+    imports: [AsyncPipe, RulesListComponent, RulesDetailComponent],
     templateUrl: './rules-module.component.html',
     styleUrl: './rules-module.component.scss'
 })

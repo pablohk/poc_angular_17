@@ -1,16 +1,17 @@
 <div class="user-list-container">
-    <p>LISTADO USUARIOS</p>
-    <ng-container *ngIf="(userList$ | LazyObs:5 | async) as userData">
-        <p>Count: {{userData.length}}</p>
-        <div class="table-container">
-            <div class="table-content" *ngFor="let item of userData">
-                <p>{{item.id}}</p>
-                <p>{{item.name}}</p>
-                <p>{{item.date}}</p>
-                <p>{{item.rules | json}}</p>
-                <button (click)="goToDetail(item.id)">Ver Detalle</button>
-            </div>
+  <p>LISTADO USUARIOS</p>
+  @if ((userList$ | LazyObs:5 | async); as userData) {
+    <p>Count: {{userData.length}}</p>
+    <div class="table-container">
+      @for (item of userData; track item.id) {
+        <div class="table-content">
+          <p>{{item.id}}</p>
+          <p>{{item.name}}</p>
+          <p>{{item.date}}</p>
+          <p>{{item.rules | json}}</p>
+          <button (click)="goToDetail(item.id)">Ver Detalle</button>
         </div>
-
-    </ng-container>
+      }
+    </div>
+  }
 </div>

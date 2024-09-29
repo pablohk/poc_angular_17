@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { GenericStore } from './genericStore';
 import { Observable } from 'rxjs';
 import { IUser } from '../modules/userModule/models/user.models';
+import { TNullable } from '../models/sharedModels';
 
 export interface IUserStore {
   userList: Array<IUser>;
-  userDetailId: string | null;
+  userDetailId: TNullable<string>;
 }
+
 export const initialState ={
   userList: [],
   userDetailId: null
@@ -33,7 +35,7 @@ export class UserStoreService extends GenericStore<IUserStore> {
     }));
   }
 
-  public getUserDetail(id: string): Observable<IUser | null> {
+  public getUserDetail(id: string): Observable<IUser> {
     console.log('---getUserDetail')
     return this.select((state)=> state.userList.filter(e=> e.id === id)[0]) 
   }

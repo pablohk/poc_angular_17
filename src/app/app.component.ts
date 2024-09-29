@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { RulesModuleComponent } from './modules/rulesModule/rules-module.compone
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom,
-  imports: [CommonModule, UserModuleComponent, RulesModuleComponent],
+  imports: [UserModuleComponent, RulesModuleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

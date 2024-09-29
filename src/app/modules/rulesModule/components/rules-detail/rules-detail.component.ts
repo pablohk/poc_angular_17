@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { UiStoreService } from '../../../../store/UiStoreService.service';
 
@@ -7,7 +7,7 @@ import { UiStoreService } from '../../../../store/UiStoreService.service';
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.ShadowDom,
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './rules-detail.component.html',
     styleUrl: './rules-detail.component.scss'
 })
