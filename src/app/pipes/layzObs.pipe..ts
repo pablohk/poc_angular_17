@@ -14,14 +14,14 @@ import {
   name: 'LazyObs',
   standalone: true,
 })
-export class LazyObsPipe<T> implements PipeTransform {
-  transform(
+export class LazyObsPipe implements PipeTransform {
+  transform<T>(
     obs: Observable<Array<T>>,
     buffer: number = 25,
     delayed: number = 100
   ): Observable<Array<T>> {
     const items: Array<T> = [];
-    return obs.pipe(
+    return obs?.pipe(
       switchMap((e) =>{
         if(!e.length){
           return of([]) 

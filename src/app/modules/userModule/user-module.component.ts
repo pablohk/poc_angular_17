@@ -8,7 +8,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 @Component({
     selector: 'user-module',
     standalone: true,
-    changeDetection: ChangeDetectionStrategy.Default,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.ShadowDom,
     imports: [CommonModule, UserListComponent, UserDetailComponent],
     templateUrl: './user-module.component.html',

@@ -1,14 +1,14 @@
 <div class="user-list-container">
     <p>LISTADO USUARIOS</p>
-    <button (click)="goTo('userDetail')">Ir al Detalle</button>
-
-    <ng-container *ngIf="(userList$ | async) as userData">
+    <ng-container *ngIf="(userList$ | LazyObs:5 | async) as userData">
+        <p>Count: {{userData.length}}</p>
         <div class="table-container">
             <div class="table-content" *ngFor="let item of userData">
                 <p>{{item.id}}</p>
                 <p>{{item.name}}</p>
                 <p>{{item.date}}</p>
                 <p>{{item.rules | json}}</p>
+                <button (click)="goToDetail(item.id)">Ver Detalle</button>
             </div>
         </div>
 

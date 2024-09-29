@@ -1,16 +1,13 @@
-<main class="main">
+<div class="app-container">
   <nav>
     <button (click)="handleClick('userList')">User Module</button>
     <button (click)="handleClick('rulesList')">Rules Module</button>
     <button (click)="toggleLoading(true)">toggleLoading TRUE</button>
     <button (click)="toggleLoading(false)">toggleLoading FALSE</button>
+    <button (click)="forceRefresh()">forceRefresh</button>
 
   </nav>
-  <ng-container>
-    <div class="flex-row">
-      <p>Estado loading: {{loading}}</p>
-    </div>
-
+  <div class="app-content">
     @switch (view) {
       @case ('userList') {
         @defer () {
@@ -26,10 +23,8 @@
         <p>Vista no encontrada</p>
       }
     }
-  </ng-container>
-  <ng-container *ngIf="loading">
-    <div class="loading">
+    <div *ngIf="loading" class="loading">
       <h1>LOADING......</h1>
     </div>
-  </ng-container>
-</main>
+  </div>
+</div>

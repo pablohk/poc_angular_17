@@ -8,7 +8,7 @@ import { RulesDetailComponent } from './components/rules-detail/rules-detail.com
 @Component({
     selector: 'rules-module',
     standalone: true,
-    changeDetection: ChangeDetectionStrategy.Default,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.ShadowDom,
     imports: [CommonModule, RulesListComponent, RulesDetailComponent],
     templateUrl: './rules-module.component.html',

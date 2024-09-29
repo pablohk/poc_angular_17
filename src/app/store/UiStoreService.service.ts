@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 export interface IuiStore{
   activeView: string;
   globalLoading: boolean;
-  userIdSelected: number | null;
+  userIdSelected: string | null;
 }
 
 export const initialState ={
@@ -48,12 +48,12 @@ export class UiStoreService extends GenericStore<IuiStore> {
     }));
   }
 
-  public getLUserIdSelected(): Observable<number | null> {
+  public getLUserIdSelected(): Observable<string | null> {
     console.log('---getLUserIdSelected')
     return this.select((state)=> state.userIdSelected) 
   }
 
-  public setUserIdSelected(id: number | null) {
+  public setUserIdSelected(id: string | null) {
     console.log('---setUserIdSelected',id)
     this.setState((state) => ({
       ...state,

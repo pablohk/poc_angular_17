@@ -5,7 +5,7 @@ import { UiStoreService } from '../../../../store/UiStoreService.service';
 @Component({
     selector: 'rules-detail',
     standalone: true,
-    changeDetection: ChangeDetectionStrategy.Default,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.ShadowDom,
     imports: [CommonModule],
     templateUrl: './rules-detail.component.html',

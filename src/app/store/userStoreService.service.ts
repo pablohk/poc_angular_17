@@ -33,17 +33,14 @@ export class UserStoreService extends GenericStore<IUserStore> {
     }));
   }
 
-  public getUserDetailId(): Observable<string | null> {
-    console.log('---getUserDetailId')
-    return this.select((state)=> state.userDetailId) 
+  public getUserDetail(id: string): Observable<IUser | null> {
+    console.log('---getUserDetail')
+    return this.select((state)=> state.userList.filter(e=> e.id === id)[0]) 
   }
 
-  public setUserDetailId(id: string | null) {
-    console.log('---setUserList',id)
-    this.setState((state) => ({
-      ...state,
-      userDetailId: id
-    }));
-  }
-
+  public resetUserStore():void {
+    this.setState(()=>({
+      ...initialState
+    })
+  )}
 }

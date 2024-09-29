@@ -10,7 +10,7 @@ import { RulesModuleComponent } from './modules/rulesModule/rules-module.compone
 @Component({
   selector: 'app-root',
   standalone: true,
-  changeDetection: ChangeDetectionStrategy.Default,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom,
   imports: [CommonModule, UserModuleComponent, RulesModuleComponent],
   templateUrl: './app.component.html',
@@ -33,10 +33,15 @@ export class AppComponent implements OnInit {
     this.getLoading();
   }
  
+  public forceRefresh(){
+    this.cdr.detectChanges()
+    this.cdr.markForCheck()
+  }
+
   getLoading() {
     this.uiStoreService.getGlobalLoading().pipe(takeUntilDestroyed(this.destroyRef)).subscribe(e => {
       this.loading = e;
-      this.cdr.detectChanges()
+      this.forceRefresh();
     })
   }
 
