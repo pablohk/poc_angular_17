@@ -12,7 +12,7 @@ import { Observable } from "rxjs";
 import { IUser } from "../../models/user.models";
 import { UserService } from "../../service/user.service";
 import { UserStoreService } from "../../../../store/userStoreService.service";
-import { LazyObsPipe } from "../../../../pipes/layzObs.pipe.";
+import { LazyObsPipe } from "../../../../shared/pipes/layzObs.pipe.";
 
 @Component({
   selector: "user-list",
@@ -68,4 +68,5 @@ export class UserListComponent implements OnInit {
     this.uiStoreService.setUserIdSelected(id);
     this.uiStoreService.setActiveView('userDetail');
   }
+
 }

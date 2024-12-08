@@ -1,2 +1,13 @@
-<p>LISTADO REGLAS</p>
-<button (click)="goTo('rulesDetail')">Detalle</button>
+<div class="rules-list-container">
+  <p class="content">LISTADO REGLAS</p>
+  <button (click)="goTo('rulesDetail')">Detalle</button>
+  <list-item [contentStyle]="styleA">
+    <div class="container">
+      <text-item />
+    </div>
+  </list-item>
+  <list-item [contentStyle]="styleB">
+      <p class="ddd">texto proyectado2</p>
+  </list-item>
+
+</div>

@@ -25,19 +25,32 @@ export abstract class GenericStore<T> {
         );
   }
 
-  protected setState(
-    fn: (state: T) => T
-  ): void {
+  protected setState(fn: (state: T) => T): void {
     const currentState = this.getState();
     const incomingState = fn(currentState);
-    const currentStateParse = JSON.stringify(currentState);
-    const incomingStateParse = JSON.stringify(incomingState);
-    console.log('---CurrentState:', currentState);
-    console.log('---incomingState:', incomingState);
-    if(incomingState && (currentStateParse !== incomingStateParse)){
-      console.log('---NEW')
+    
+    if (incomingState && !this.isEqual(currentState, incomingState)) {
+      console.log('---NEW');
       this._state.next({...incomingState});
     }
+    
+  }
+
+  private isEqual(obj1: T, obj2: T): boolean {
+    if (obj1 === obj2) return true;
+    if (!obj1 || !obj2) return false;
+    
+    const keys1 = Object.keys(obj1);
+    const keys2 = Object.keys(obj2);
+    
+    if (keys1.length !== keys2.length) return false;
+    
+    return keys1.every(key => 
+      obj1[key as keyof T] === obj2[key as keyof T] || 
+      (typeof obj1[key as keyof T] === 'object' && 
+       typeof obj2[key as keyof T] === 'object' && 
+       this.isEqual(obj1[key as keyof T] as T, obj2[key as keyof T] as T))
+    );
   }
 
 }

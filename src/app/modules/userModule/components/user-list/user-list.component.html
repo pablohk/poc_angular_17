@@ -1,21 +1,38 @@
-<div class="user-list-container">
-  <p>LISTADO USUARIOS</p>
+<section class="user-list-container">
+  <h1 class="title">LISTADO USUARIOS</h1>
+  
   @if ((userList$ | LazyObs:5 | async); as userData) {
-    <p>Count: {{userData.length}}</p>
+    <div class="user-stats">
+      <p>Total de usuarios: {{userData.length}}</p>
+    </div>
+
     <div class="table-container">
+      <div class="table-header">
+        <span>ID</span>
+        <span>Nombre</span>
+        <span>Fecha</span>
+        <span>Reglas</span>
+        <span>Acciones</span>
+      </div>
+
       @for (item of userData; track item.id) {
-        <div class="table-content">
-          <p>{{item.id}}</p>
-          <p>{{item.name}}</p>
-          <p>{{item.date}}</p>
-          <p>
+        <div class="table-row" role="row">
+          <span>{{item.id}}</span>
+          <span>{{item.name}}</span>
+          <span>{{item.date}}</span>
+          <div class="rules-container">
             @for(ruleItem of item.rules; track ruleItem){
-              <span>{{ruleItem}}</span>
+              <span class="rule-tag">{{ruleItem}}</span>
             }
-          </p>
-          <button (click)="goToDetail(item.id)">Ver Detalle</button>
+          </div>
+          <button 
+            class="btn-detail"
+            (click)="goToDetail(item.id)"
+            [attr.aria-label]="'Ver detalle de ' + item.name">
+            Ver Detalle
+          </button>
         </div>
       }
     </div>
   }
-</div>
+</section>

@@ -1,3 +1,11 @@
 <p>DETALLE USUARIOS</p>
 <p>{{(userDetail$ | async) | json}}</p>
 <button (click)="goBack()">Volver</button>
+
+<picture class="img-wrapper">
+    <source media="(min-width:1200px)" srcset="assets/a.jpg">
+    <source media="(min-width:600px)" srcset="assets/aa.jpg">
+    <img src="assets/a-mini.jpg" alt="Flowers" (load)="dosomething()">
+</picture>
+
+
