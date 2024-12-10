@@ -2,6 +2,9 @@
   <nav>
     <button (click)="handleClick('userList')">User Module</button>
     <button (click)="handleClick('rulesList')">Rules Module</button>
+    <button (click)="handleClick('signalsPoc')">signalsPoc Module</button>
+    <button (click)="handleClick('signalsPocV2')">signalsPoc V2 Module</button>
+
     <button (click)="toggleLoading(true)">toggleLoading TRUE</button>
     <button (click)="toggleLoading(false)">toggleLoading FALSE</button>
     <button (click)="forceRefresh()">forceRefresh</button>
@@ -19,6 +22,16 @@
       <rules-module></rules-module>
     }
   }
+  @case ('signalsPoc') {
+    @defer () {
+    <signals-poc-module></signals-poc-module>
+  }
+}
+@case ('signalsPocV2') {
+  @defer () {
+  <signals-poc-v2-module></signals-poc-v2-module>
+}
+}
   @default {
     <p>Vista no encontrada</p>
   }

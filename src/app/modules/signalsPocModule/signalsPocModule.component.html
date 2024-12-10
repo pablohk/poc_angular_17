@@ -1,0 +1,29 @@
+<h2>EJEMPLO DE SIGNALS</h2>
+
+@if(!loading() && !error()){
+    <div class="content">
+        <h4>Padre</h4>
+        <div class="actions">
+            <button (click)="setAll()">Set Signal entero</button>
+            <button (click)="updaTitle()">Update sólo título</button>
+            <button (click)="updateListado()">Update cambio valor listado</button>
+            <button (click)="updateListadoSize(true)">Update añadir valor listado</button>
+            <button (click)="updateListadoSize(false)">Update quitar valor listado</button>
+        </div>
+        <p>Signal inicial: {{payload() | json}}</p>
+        <p>Signal título: {{payload().titulo}}</p>
+        <p>Computed titleSection: {{titleSection()}}</p>
+        <p>Computed listadoSection: {{listadoSection()}}</p>
+    </div>
+    
+    <child-signal 
+        [signalObj]="payload" 
+        [title]="payload().titulo" 
+        [titleSection]="titleSection()"
+        [listadoSection]="listadoSection()" 
+        (setAllOuput)="handleSetAll($event)" 
+    />
+}
+@else {
+    <h2>ERROR: {{error()}}</h2>
+}

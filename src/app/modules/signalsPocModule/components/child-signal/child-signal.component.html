@@ -1,0 +1,14 @@
+<div class="content">
+    <h4>Hijo</h4>
+    <div class="actions">
+        <button (click)="setAll()">Set Signal entero con el propio signal</button>
+        <button (click)="updaTitle()">Update sólo título con el propio signal</button>
+        <button (click)="updateListado()">Update cambio valor listado con el propio signal</button>
+        <button (click)="setAllOut()">Set Signal entero con output</button>
+
+    </div>
+    <p>Signal pasado: {{signalObj() | json}}</p>
+    <p>Signal título: {{title()}}</p>
+    <p>Computed titleSection: {{titleSection()}}</p>
+    <p>Computed listadoSection: {{listadoSection()}}</p>    
+</div>

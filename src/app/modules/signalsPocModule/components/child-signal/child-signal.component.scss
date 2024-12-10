@@ -1,0 +1,21 @@
+:host {
+  display: block;
+  p, h4 {
+      padding: 0px;
+      margin: 0px;
+  }
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  gap: 1rem;
+}
+.content {
+  margin: 1rem;
+  border: 1px solid black;
+  & h4 {
+      border-bottom: 1px solid black;
+      background-color: rgb(129, 223, 126);
+  }
+}

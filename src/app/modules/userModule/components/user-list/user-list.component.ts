@@ -1,9 +1,11 @@
-import { AsyncPipe, JsonPipe } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  OnChanges,
   OnInit,
+  SimpleChanges,
   ViewEncapsulation,
 } from "@angular/core";
 import { UiStoreService } from "../../../../store/UiStoreService.service";
@@ -19,11 +21,11 @@ import { LazyObsPipe } from "../../../../shared/pipes/layzObs.pipe.";
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom,
-  imports: [AsyncPipe, JsonPipe, LazyObsPipe],
+  imports: [AsyncPipe, LazyObsPipe],
   templateUrl: "./user-list.component.html",
   styleUrl: "./user-list.component.scss",
 })
-export class UserListComponent implements OnInit {
+export class UserListComponent implements OnInit, OnChanges {
   public userList$!: Observable<Array<IUser>>;
   
   constructor(
@@ -34,6 +36,10 @@ export class UserListComponent implements OnInit {
   ) {
   }
   
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log('---UserListComponent changes', changes)
+  } 
+
   ngOnInit(): void {
     this.getCurrentView();
     this.getUserList();

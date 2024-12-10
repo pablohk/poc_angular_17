@@ -6,13 +6,15 @@ import { Observable } from 'rxjs';
 import { UiStoreService } from './store/UiStoreService.service';
 import { UserModuleComponent } from './modules/userModule/user-module.component';
 import { RulesModuleComponent } from './modules/rulesModule/rules-module.component';
+import { SignalsPocModuleComponent } from './modules/signalsPocModule/signalsPocModule.component';
+import { SignalsPocDosModuleComponent } from './modules/signalsDosPocModule/signalsPocDosModule.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom,
-  imports: [UserModuleComponent, RulesModuleComponent],
+  imports: [UserModuleComponent, RulesModuleComponent, SignalsPocModuleComponent, SignalsPocDosModuleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
